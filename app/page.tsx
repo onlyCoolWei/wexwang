@@ -13,8 +13,8 @@ export default function Home() {
             <div className="p-4 bg-blue-50 rounded-lg">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">技术栈</h2>
               <ul className="list-disc list-inside text-gray-600 space-y-1">
-                <li>Next.js 14</li>
-                <li>React 18</li>
+                <li>Next.js 16</li>
+                <li>React 19</li>
                 <li>TypeScript</li>
                 <li>Tailwind CSS</li>
               </ul>

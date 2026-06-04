@@ -1,4 +1,4 @@
-# Personal Introduction
+# wexwang
 
 一个使用 Next.js 16 构建的个人介绍网站。
 
@@ -44,7 +44,7 @@ npm start
 ## 项目结构
 
 ```
-personal-introduction/
+wexwang/
 ├── app/                # Next.js App Router 目录
 │   ├── layout.tsx     # 根布局组件
 │   ├── page.tsx       # 首页
