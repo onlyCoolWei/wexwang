@@ -1,69 +1,33 @@
+'use client'
+
 import Image from 'next/image'
-
-const works = [
-  {
-    name: 'MoreAI',
-    period: 'MMXXVI',
-    description:
-      '从 0 到 1 搭建 AI Agent 工作台与 Electron 客户端，覆盖对话、知识库、Skills、工作流画布与多端同步。',
-  },
-  {
-    name: 'AutoCoder',
-    period: 'MMXXV',
-    description:
-      '参与自然语言到前后端应用生成的 Agent 流程体系，处理长任务状态与动态交互流转。',
-  },
-  {
-    name: 'Wegic',
-    period: 'MMXXV',
-    description:
-      '推动 AI 建站生成到发布链路优化，最终用户建站转化率提升 30%。',
-  },
-]
-
-const career = [
-  ['2025.11 - 2026.05', '智能生成（北京）科技有限公司', 'Agent 前端开发工程师'],
-  ['2022.03 - 2025.09', '北京即设科技有限公司', '前端技术 Owner'],
-  ['2018.09 - 2022.06', '内蒙古农业大学', '软件工程本科'],
-]
-
-const methods = [
-  '把复杂交互先拆成可验证的状态模型，再进入 UI 实现。',
-  '用性能数据约束架构取舍，尤其关注流式渲染、画布加载与首屏体验。',
-  '在 AI Native 产品里，把工具调用、工作流与用户意图放在同一个交互闭环里设计。',
-]
-
-const stack = [
-  'Next.js',
-  'React',
-  'TypeScript',
-  'Electron',
-  'Zustand',
-  'ReactFlow',
-  'Monaco Editor',
-  'WebSocket',
-  'Tailwind CSS',
-]
+import { LanguageToggle } from '@/src/components/language-toggle'
+import { useTranslation } from '@/src/lib/i18n'
 
 export default function Home() {
+  const { dictionary, t } = useTranslation()
+
   return (
     <main className="min-h-screen bg-neutral-950 text-stone-50">
       <div className="mx-auto flex w-full max-w-7xl flex-col px-5 py-6 sm:px-8 lg:px-12">
         <header className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.22em] text-neutral-500">
           <a href="#top" className="text-stone-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-50">
-            wexwang
+            {t('brand')}
           </a>
-          <nav aria-label="Primary navigation" className="hidden gap-6 sm:flex">
-            <a className="transition hover:text-stone-50" href="#work">
-              Work
-            </a>
-            <a className="transition hover:text-stone-50" href="#career">
-              Career
-            </a>
-            <a className="transition hover:text-stone-50" href="#reach">
-              Reach
-            </a>
-          </nav>
+          <div className="flex items-center gap-6">
+            <nav aria-label={t('nav.ariaLabel')} className="hidden gap-6 sm:flex">
+              <a className="transition hover:text-stone-50" href="#work">
+                {t('nav.work')}
+              </a>
+              <a className="transition hover:text-stone-50" href="#career">
+                {t('nav.career')}
+              </a>
+              <a className="transition hover:text-stone-50" href="#reach">
+                {t('nav.reach')}
+              </a>
+            </nav>
+            <LanguageToggle />
+          </div>
         </header>
 
         <section
@@ -73,42 +37,26 @@ export default function Home() {
         >
           <div className="max-w-4xl">
             <p className="mb-8 font-mono text-xs uppercase tracking-[0.26em] text-neutral-500">
-              00 / MMXXVI
+              {t('hero.eyebrow')}
             </p>
             <h1
               id="hero-title"
               className="max-w-5xl text-5xl font-medium leading-[0.95] tracking-[-0.06em] sm:text-7xl lg:text-[8.5rem]"
             >
-              Wex builds AI native interfaces.
+              {t('hero.title')}
             </h1>
             <p className="mt-10 max-w-2xl text-xl leading-8 text-neutral-300 sm:text-2xl sm:leading-9">
-              AI Native Frontend / Agent Engineer，专注 AI Agent、图形编辑器架构与高复杂度交互系统。
+              {t('hero.subtitle')}
             </p>
             <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-x-8 gap-y-6 font-mono text-xs uppercase tracking-[0.16em] text-neutral-500 sm:grid-cols-4">
-              <div>
-                <dt>Who</dt>
-                <dd className="mt-2 font-sans text-base normal-case tracking-normal text-stone-50">
-                  王伟
-                </dd>
-              </div>
-              <div>
-                <dt>What</dt>
-                <dd className="mt-2 font-sans text-base normal-case tracking-normal text-stone-50">
-                  Agent Engineer
-                </dd>
-              </div>
-              <div>
-                <dt>Where</dt>
-                <dd className="mt-2 font-sans text-base normal-case tracking-normal text-stone-50">
-                  Beijing
-                </dd>
-              </div>
-              <div>
-                <dt>Born</dt>
-                <dd className="mt-2 font-sans text-base normal-case tracking-normal text-stone-50">
-                  1999
-                </dd>
-              </div>
+              {dictionary.hero.meta.map(([label, value]) => (
+                <div key={label}>
+                  <dt>{label}</dt>
+                  <dd className="mt-2 font-sans text-base normal-case tracking-normal text-stone-50">
+                    {value}
+                  </dd>
+                </div>
+              ))}
             </dl>
           </div>
 
@@ -116,7 +64,7 @@ export default function Home() {
             <div className="relative aspect-[3/4] w-64 overflow-hidden bg-neutral-900 sm:w-72 md:w-80">
               <Image
                 src="/images/wex-id-photo.png"
-                alt="王伟头像"
+                alt={t('hero.portraitAlt')}
                 fill
                 priority
                 sizes="(min-width: 768px) 320px, 288px"
@@ -124,7 +72,7 @@ export default function Home() {
               />
             </div>
             <figcaption className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">
-              Portrait / Wex Wang
+              {t('hero.portraitCaption')}
             </figcaption>
           </figure>
         </section>
@@ -132,14 +80,14 @@ export default function Home() {
         <div className="space-y-28 pb-24 sm:space-y-36">
           <section id="work" aria-labelledby="work-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
-              01 / Recently
+              {t('work.eyebrow')}
             </p>
             <div>
               <h2 id="work-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                Selected.
+                {t('work.title')}
               </h2>
               <div className="mt-12 space-y-10">
-                {works.map((work) => (
+                {dictionary.work.items.map((work) => (
                   <article key={work.name} className="grid gap-3 md:grid-cols-[180px_1fr]">
                     <p className="font-mono text-xs uppercase tracking-[0.2em] text-neutral-500">
                       {work.period}
@@ -158,28 +106,28 @@ export default function Home() {
 
           <section aria-labelledby="background-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
-              03 / Background
+              {t('background.eyebrow')}
             </p>
             <div>
               <h2 id="background-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                Beginnings.
+                {t('background.title')}
               </h2>
               <p className="mt-10 max-w-3xl text-xl leading-9 text-neutral-300">
-                4 年复杂 Web 应用与 AI 产品开发经验，从在线设计工具、AI 建站到 Agent 工作台，长期处理画布、流式对话、工具调用、多端同步与工程化体系中的复杂问题。
+                {t('background.body')}
               </p>
             </div>
           </section>
 
           <section id="career" aria-labelledby="career-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
-              04 / Career
+              {t('career.eyebrow')}
             </p>
             <div>
               <h2 id="career-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                Trajectory.
+                {t('career.title')}
               </h2>
               <div className="mt-12 space-y-8">
-                {career.map(([time, company, role]) => (
+                {dictionary.career.items.map(([time, company, role]) => (
                   <article key={`${time}-${company}`} className="grid gap-2 md:grid-cols-[180px_1fr]">
                     <p className="font-mono text-xs uppercase tracking-[0.16em] text-neutral-500">
                       {time}
@@ -196,14 +144,14 @@ export default function Home() {
 
           <section aria-labelledby="method-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
-              05 / Method
+              {t('method.eyebrow')}
             </p>
             <div>
               <h2 id="method-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                Approach.
+                {t('method.title')}
               </h2>
               <ol className="mt-12 grid gap-8 md:grid-cols-3">
-                {methods.map((method, index) => (
+                {dictionary.method.items.map((method, index) => (
                   <li key={method}>
                     <p className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
                       0{index + 1}
@@ -217,14 +165,14 @@ export default function Home() {
 
           <section aria-labelledby="stack-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
-              08 / Stack
+              {t('stack.eyebrow')}
             </p>
             <div>
               <h2 id="stack-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                Tools.
+                {t('stack.title')}
               </h2>
               <ul className="mt-12 flex max-w-4xl flex-wrap gap-x-4 gap-y-3">
-                {stack.map((item) => (
+                {dictionary.stack.items.map((item) => (
                   <li
                     key={item}
                     className="font-mono text-sm uppercase tracking-[0.16em] text-neutral-300"
@@ -238,32 +186,32 @@ export default function Home() {
 
           <section aria-labelledby="craft-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
-              09 / Craft
+              {t('craft.eyebrow')}
             </p>
             <div>
               <h2 id="craft-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                Colophon.
+                {t('craft.title')}
               </h2>
               <p className="mt-10 max-w-3xl text-lg leading-8 text-neutral-300">
-                本站使用 Next.js 16、React 19、TypeScript 与 Tailwind CSS 构建。页面保持静态优先，视觉依靠排版、留白与语义结构完成。
+                {t('craft.body')}
               </p>
             </div>
           </section>
 
           <section id="reach" aria-labelledby="reach-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
-              10 / Reach
+              {t('reach.eyebrow')}
             </p>
             <div>
               <h2 id="reach-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                Contact.
+                {t('reach.title')}
               </h2>
               <div className="mt-10 flex flex-col gap-4 text-xl sm:flex-row sm:gap-8">
                 <a className="underline decoration-neutral-700 underline-offset-4 hover:decoration-stone-50" href="mailto:wangw_str@163.com">
-                  wangw_str@163.com
+                  {t('reach.email')}
                 </a>
                 <a className="underline decoration-neutral-700 underline-offset-4 hover:decoration-stone-50" href="tel:15661332411">
-                  15661332411
+                  {t('reach.phone')}
                 </a>
               </div>
             </div>
