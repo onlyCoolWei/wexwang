@@ -96,4 +96,4 @@ export const enUS = {
     email: 'wangw_str@163.com',
     phone: '15661332411',
   },
-} as const
+} as const;

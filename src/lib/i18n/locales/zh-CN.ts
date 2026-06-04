@@ -12,8 +12,7 @@ export const zhCN = {
   hero: {
     eyebrow: '00 / MMXXVI',
     title: 'Wex builds AI native interfaces.',
-    subtitle:
-      'AI Native Frontend / Agent Engineer，专注 AI Agent、图形编辑器架构与高复杂度交互系统。',
+    subtitle: 'AI Native Frontend / Agent Engineer，专注 AI Agent、图形编辑器架构与高复杂度交互系统。',
     portraitAlt: '王伟头像',
     portraitCaption: 'Portrait / Wex Wang',
     meta: [
@@ -36,14 +35,12 @@ export const zhCN = {
       {
         name: 'AutoCoder',
         period: 'MMXXV',
-        description:
-          '参与自然语言到前后端应用生成的 Agent 流程体系，处理长任务状态与动态交互流转。',
+        description: '参与自然语言到前后端应用生成的 Agent 流程体系，处理长任务状态与动态交互流转。',
       },
       {
         name: 'Wegic',
         period: 'MMXXV',
-        description:
-          '推动 AI 建站生成到发布链路优化，最终用户建站转化率提升 30%。',
+        description: '推动 AI 建站生成到发布链路优化，最终用户建站转化率提升 30%。',
       },
     ],
   },
@@ -96,4 +93,4 @@ export const zhCN = {
     email: 'wangw_str@163.com',
     phone: '15661332411',
   },
-} as const
+} as const;

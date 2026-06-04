@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { create } from 'zustand'
-import { createJSONStorage, persist } from 'zustand/middleware'
-import { defaultLanguage, type Language } from './config'
+import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
+import { defaultLanguage, type Language } from './config';
 
 type LanguageState = {
-  language: Language
-  setLanguage: (language: Language) => void
-}
+  language: Language;
+  setLanguage: (language: Language) => void;
+};
 
 export const useLanguageStore = create<LanguageState>()(
   persist(
@@ -20,4 +20,4 @@ export const useLanguageStore = create<LanguageState>()(
       storage: createJSONStorage(() => localStorage),
     },
   ),
-)
+);

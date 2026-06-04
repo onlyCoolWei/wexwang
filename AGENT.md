@@ -64,6 +64,9 @@ pnpm preview
 
 # 代码检查
 pnpm lint
+
+# Prettier 格式化
+pnpm format
 ```
 
 ---

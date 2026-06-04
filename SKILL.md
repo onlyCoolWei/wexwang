@@ -41,8 +41,10 @@ description: 构建受 ozgur.design 启发的极简、编辑式、Bauhaus 风格
 
 ```html
 <section id="03-background" aria-labelledby="03-title">
-  <p class="meta">03 / Background</p>     <!-- 等宽标签 -->
-  <h2 id="03-title">Beginnings.</h2>      <!-- 单词标题 + 句号 -->
+  <p class="meta">03 / Background</p>
+  <!-- 等宽标签 -->
+  <h2 id="03-title">Beginnings.</h2>
+  <!-- 单词标题 + 句号 -->
   <div class="prose">…正文…</div>
 </section>
 ```

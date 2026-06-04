@@ -21,21 +21,22 @@
 
 整站采用**编号章节（numbered sections）**的编辑式叙事结构，从 `00` 到 `10` 顺序排列，像一本作品集册子的目录。
 
-| 编号 | 章节标题 | 内容 |
-| --- | --- | --- |
-| `00 / MMXXVI` | Hero | 一句话定位 + 个人名片（Who / What / Where / How / When）|
-| `01 / Recently` | Selected work | 近期精选项目（可加密保护）|
-| `02 / Previously` | Archived | 早期归档项目 |
-| `03 / Background` | Beginnings | 起源故事 |
-| `04 / Career` | Trajectory | 职业轨迹 / 简历 |
-| `05 / Method` | Approach | 工作方法论 |
-| `06 / Projects` | Tinkering | 业余项目 / 玩具站点 |
-| `07 / Writing` | Takes | 文章 / 观点 |
-| `08 / Stack` | Tools | 工具栈 |
-| `09 / Craft` | Colophon | 版本说明 / 技术声明 |
-| `10 / Reach` | Contact | 联系方式 |
+| 编号              | 章节标题      | 内容                                                     |
+| ----------------- | ------------- | -------------------------------------------------------- |
+| `00 / MMXXVI`     | Hero          | 一句话定位 + 个人名片（Who / What / Where / How / When） |
+| `01 / Recently`   | Selected work | 近期精选项目（可加密保护）                               |
+| `02 / Previously` | Archived      | 早期归档项目                                             |
+| `03 / Background` | Beginnings    | 起源故事                                                 |
+| `04 / Career`     | Trajectory    | 职业轨迹 / 简历                                          |
+| `05 / Method`     | Approach      | 工作方法论                                               |
+| `06 / Projects`   | Tinkering     | 业余项目 / 玩具站点                                      |
+| `07 / Writing`    | Takes         | 文章 / 观点                                              |
+| `08 / Stack`      | Tools         | 工具栈                                                   |
+| `09 / Craft`      | Colophon      | 版本说明 / 技术声明                                      |
+| `10 / Reach`      | Contact       | 联系方式                                                 |
 
 设计要点：
+
 - 编号使用 `两位数字 + 斜杠 + 关键词` 的格式（如 `01 / Recently`）。
 - 年份使用**罗马数字**（`MMXXVI` = 2026），强化「印刷品 / 铭文」气质。
 - 每个章节有一个**短促有力的单词标题**（Beginnings. / Trajectory. / Approach.），以句号结尾。
@@ -61,12 +62,12 @@
 
 极简的近黑白配色，最大化对比与可读性。
 
-| 角色 | 说明 |
-| --- | --- |
-| 背景 | 近白 / 纸张色（off-white），或暗色模式下的近黑 |
-| 前景文字 | 近黑 / 高对比墨色 |
-| 次级文字 | 中灰（用于元信息、标签、辅助说明）|
-| 强调 | 极少量，仅在必要处用于链接 hover / 焦点态 |
+| 角色     | 说明                                           |
+| -------- | ---------------------------------------------- |
+| 背景     | 近白 / 纸张色（off-white），或暗色模式下的近黑 |
+| 前景文字 | 近黑 / 高对比墨色                              |
+| 次级文字 | 中灰（用于元信息、标签、辅助说明）             |
+| 强调     | 极少量，仅在必要处用于链接 hover / 焦点态      |
 
 原则：**色彩不承担装饰职能**，只服务于可读性与状态反馈（hover、focus、visited）。
 
