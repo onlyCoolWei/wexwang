@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'wexwang',
-  description: 'A personal introduction website built with Next.js',
+  description: '王伟的 AI Native Frontend / Agent Engineer 个人网站',
 }
 
 export default function RootLayout({
