@@ -11,16 +11,12 @@ export const zhCN = {
   },
   hero: {
     eyebrow: '00 / MMXXVI',
-    title: 'Wex builds AI native interfaces.',
-    subtitle: 'AI Native Frontend / Agent Engineer，专注 AI Agent、图形编辑器架构与高复杂度交互系统。',
+    title: 'Building AI-Native Realities.',
+    subtitle:
+      "专注在 AI Agent 工作台、复杂图形画布与现代化工程体系的交叉领域，擅长 AI 产品的从 0 到 1 落地。",
+    contactCta: '联系我',
     portraitAlt: '王伟头像',
     portraitCaption: 'Portrait / Wex Wang',
-    meta: [
-      ['Who', '王伟'],
-      ['What', 'Agent Engineer'],
-      ['Where', 'Beijing'],
-      ['Born', '1999'],
-    ],
   },
   work: {
     eyebrow: '01 / Recently',

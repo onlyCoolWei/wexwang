@@ -16,6 +16,7 @@ body {
   min-height: 100vh;
   color: rgb(var(--ink));
   background: rgb(var(--paper));
+  overflow-x: hidden;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,6 +29,53 @@ body {
 
 a {
   text-underline-offset: 0.2em;
+}
+
+@keyframes blur-rise {
+  0% {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(18px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(-7%, 4%, 0) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translate3d(8%, -6%, 0) rotate(8deg) scale(1.12);
+  }
+}
+
+@keyframes shimmer-border {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

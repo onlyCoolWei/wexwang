@@ -11,17 +11,12 @@ export const enUS = {
   },
   hero: {
     eyebrow: '00 / MMXXVI',
-    title: 'Wex builds AI native interfaces.',
+    title: 'Building AI-Native Realities.',
     subtitle:
-      'AI Native Frontend / Agent Engineer focused on AI agents, editor architecture, and complex interaction systems.',
+      "Focused on the intersection of AI Agent workbenches, complex graphic canvases, and modern engineering systems, specializing in the 0 to 1 landing of AI products.",
+    contactCta: 'Contact me',
     portraitAlt: 'Portrait of Wei Wang',
     portraitCaption: 'Portrait / Wex Wang',
-    meta: [
-      ['Who', 'Wei Wang'],
-      ['What', 'Agent Engineer'],
-      ['Where', 'Beijing'],
-      ['Born', '1999'],
-    ],
   },
   work: {
     eyebrow: '01 / Recently',

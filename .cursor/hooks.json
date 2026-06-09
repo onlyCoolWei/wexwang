@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      {
+        "command": ".cursor/hooks/append-system-notify.sh",
+        "timeout": 30,
+        "loop_limit": 1
+      }
+    ]
+  }
+}
