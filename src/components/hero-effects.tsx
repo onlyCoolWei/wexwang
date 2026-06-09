@@ -5,6 +5,12 @@ import { type FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 const GLYPHS = '01<>/{}[]#$%&+-=*';
 const STREAM_RESPONSE = "Initializing Wegic & MoreAI pipelines... Let's connect at wangw_str@163.com.";
 
+type DecodeAnimation = {
+  delay: number;
+  frame: number;
+  text: string;
+};
+
 export function DecryptedText({
   text,
   delay = 500,
@@ -14,21 +20,23 @@ export function DecryptedText({
   delay?: number;
   className?: string;
 }) {
-  const [frame, setFrame] = useState(0);
+  const [animation, setAnimation] = useState<DecodeAnimation>({ delay, frame: 0, text });
   const glyphs = useMemo(() => GLYPHS.split(''), []);
+  const frame = animation.delay === delay && animation.text === text ? animation.frame : 0;
 
   useEffect(() => {
-    setFrame(0);
     let interval = 0;
     const start = window.setTimeout(() => {
       interval = window.setInterval(() => {
-        setFrame((current) => {
-          if (current >= text.length + 7) {
+        setAnimation((current) => {
+          const currentFrame = current.delay === delay && current.text === text ? current.frame : 0;
+
+          if (currentFrame >= text.length + 7) {
             window.clearInterval(interval);
-            return current;
+            return current.delay === delay && current.text === text ? current : { delay, frame: currentFrame, text };
           }
 
-          return current + 1;
+          return { delay, frame: currentFrame + 1, text };
         });
       }, 34);
     }, delay);
