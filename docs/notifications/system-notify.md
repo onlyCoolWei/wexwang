@@ -1,5 +1,8 @@
 ### 2026-06-09
 
+- ✨ 新增个人主页 Section4 荣誉黑客松横向卷轴，并同步中英文奖项文案。
+- ✨ 新增个人主页 Section3 精选作品集卡片，并同步中英文项目文案。
+- ✨ 新增个人主页 Section2 成长轨迹时间线，并同步中英文阶段文案。
 - 🔧 配置 Husky 与 lint-staged 提交前检查，并迁移 ESLint 到 Next 16 兼容配置。
 - 🔧 配置 Cursor stop hook，在对话完成后自动总结实际变更并更新系统通知。
 - ✨ 新增react-aria-components依赖
