@@ -65,11 +65,6 @@ export const zhCN = {
       },
     ],
   },
-  background: {
-    eyebrow: '05 / Background',
-    title: 'Beginnings.',
-    body: '4 年复杂 Web 应用与 AI 产品开发经验，从在线设计工具、AI 建站到 Agent 工作台，长期处理画布、流式对话、工具调用、多端同步与工程化体系中的复杂问题。',
-  },
   honors: {
     eyebrow: '04 / Honors',
     title: 'Hackathon Reel.',
@@ -149,39 +144,49 @@ export const zhCN = {
       },
     ],
   },
-  method: {
-    eyebrow: '06 / Method',
-    title: 'Approach.',
+  skills: {
+    eyebrow: '05 / Skillset',
+    title: 'Arsenal.',
     items: [
-      '把复杂交互先拆成可验证的状态模型，再进入 UI 实现。',
-      '用性能数据约束架构取舍，尤其关注流式渲染、画布加载与首屏体验。',
-      '在 AI Native 产品里，把工具调用、工作流与用户意图放在同一个交互闭环里设计。',
+      {
+        code: 'D1',
+        domain: 'GenAI & Agent Engineering',
+        name: 'AI 赋能与大模型应用开发',
+        description:
+          '熟练驾驭尖端 AI Coding 工作流，深入研读 Agent 项目源码，具备将复杂 Prompt 工程与 LLM 逻辑转化为高可控、高确定性产品的端到端交付能力，深刻理解大模型底层的工具调用与状态流转。',
+        tags: ['Claude Code', 'Cursor', 'Kiro', 'LangChain', 'Dify', 'Agent Runtime', 'Tools / Memory', 'Prompt 工程'],
+      },
+      {
+        code: 'D2',
+        domain: 'Graphics & Heavy-duty Frontend',
+        name: '核心图形学与复杂交互底座',
+        description:
+          '专攻高性能协作画布与复杂图形编辑器架构，对数据结构、状态机与渲染性能优化有极深刻的理解，擅长攻坚高频流式交互场景下的卡顿、大文件分片传输与重绘瓶颈。',
+        tags: ['CanvasKit / Skia', 'CRDT (Yjs)', '矩阵变换', '矢量网格算法', 'WebSocket', 'State Pattern'],
+      },
+      {
+        code: 'D3',
+        domain: 'Modern Infrastructure & Desktop',
+        name: '现代化工程基石与跨端能力',
+        description:
+          '擅长大型前端项目从 0 到 1 的高可用、高扩展性架构设计，熟练集成 CI/CD 自动化测试与质量管控，具备完备的桌面端跨平台复杂环境构建与分发部署经验。',
+        tags: ['TypeScript (ES6+)', 'React / Next.js', 'Vue', 'Electron', 'CI/CD', '签名与公证流水线'],
+      },
     ],
   },
-  stack: {
-    eyebrow: '08 / Stack',
-    title: 'Tools.',
-    items: [
-      'Next.js',
-      'React',
-      'TypeScript',
-      'Electron',
-      'Zustand',
-      'ReactFlow',
-      'Monaco Editor',
-      'WebSocket',
-      'Tailwind CSS',
-    ],
-  },
-  craft: {
-    eyebrow: '09 / Craft',
-    title: 'Colophon.',
-    body: '本站使用 Next.js 16、React 19、TypeScript 与 Tailwind CSS 构建。页面保持静态优先，视觉依靠排版、留白与语义结构完成。',
-  },
-  reach: {
-    eyebrow: '10 / Reach',
-    title: 'Contact.',
+  contact: {
+    eyebrow: '06 / Connect',
+    slogan: "Let's build something magical together.",
+    sloganNote: '让我们一起创造一些不可思议的东西。',
+    ctaLabel: '发送邮件',
+    mailSubject: 'Connect from Personal Website',
+    typed: 'Your mail app is opening. I will reply as soon as I see your message.',
+    emailLabel: '唯一官方沟通枢纽',
     email: 'wangw_str@163.com',
-    phone: '15661332411',
+    links: {
+      github: 'GitHub',
+      jsdesign: '即时设计',
+    },
+    copyright: '© 2026. Powered by Passion, TypeScript & AI.',
   },
 } as const;

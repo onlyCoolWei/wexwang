@@ -70,11 +70,6 @@ export const enUS = {
       },
     ],
   },
-  background: {
-    eyebrow: '05 / Background',
-    title: 'Beginnings.',
-    body: 'Four years of experience building complex web applications and AI products, from online design tools and AI website builders to agent workspaces. I work across canvas systems, streaming chat, tool calling, multi-device sync, and modern frontend engineering.',
-  },
   honors: {
     eyebrow: '04 / Honors',
     title: 'Hackathon Reel.',
@@ -154,39 +149,65 @@ export const enUS = {
       },
     ],
   },
-  method: {
-    eyebrow: '06 / Method',
-    title: 'Approach.',
+  skills: {
+    eyebrow: '05 / Skillset',
+    title: 'Arsenal.',
     items: [
-      'Reduce complex interactions into verifiable state models before shaping the UI.',
-      'Let performance data guide architectural tradeoffs, especially around streaming rendering, canvas loading, and first paint.',
-      'In AI native products, design tool calls, workflows, and user intent as one interaction loop.',
+      {
+        code: 'D1',
+        domain: 'GenAI & Agent Engineering',
+        name: 'AI empowerment & LLM application development',
+        description:
+          'Mastering cutting-edge AI coding workflows and deeply analyzing autonomous agent runtimes. Expert in translating complex prompt engineering and LLM memory and tool-calling logic into high-precision, production-ready systems.',
+        tags: [
+          'Claude Code',
+          'Cursor',
+          'Kiro',
+          'LangChain',
+          'Dify',
+          'Agent Runtime',
+          'Tools / Memory',
+          'Prompt Engineering',
+        ],
+      },
+      {
+        code: 'D2',
+        domain: 'Graphics & Heavy-duty Frontend',
+        name: 'Core graphics & complex interaction foundations',
+        description:
+          'Specialized in high-performance collaborative canvases and complex graphic editor architectures. Deep comprehension of data structures, state patterns, and vector rendering, with proven expertise in eliminating real-time streaming and rendering bottlenecks.',
+        tags: [
+          'CanvasKit / Skia',
+          'CRDT (Yjs)',
+          'Matrix Transforms',
+          'Vector Mesh Algorithms',
+          'WebSocket',
+          'State Pattern',
+        ],
+      },
+      {
+        code: 'D3',
+        domain: 'Modern Infrastructure & Desktop',
+        name: 'Modern engineering foundations & cross-platform delivery',
+        description:
+          'Architecting large-scale frontend engineering from 0 to 1 with high availability and scalability. Comprehensive experience in CI/CD automation and cross-platform desktop applications via Electron packaging, signing, and notarization pipelines.',
+        tags: ['TypeScript (ES6+)', 'React / Next.js', 'Vue', 'Electron', 'CI/CD', 'Signing & Notarization'],
+      },
     ],
   },
-  stack: {
-    eyebrow: '08 / Stack',
-    title: 'Tools.',
-    items: [
-      'Next.js',
-      'React',
-      'TypeScript',
-      'Electron',
-      'Zustand',
-      'ReactFlow',
-      'Monaco Editor',
-      'WebSocket',
-      'Tailwind CSS',
-    ],
-  },
-  craft: {
-    eyebrow: '09 / Craft',
-    title: 'Colophon.',
-    body: 'This site is built with Next.js 16, React 19, TypeScript, and Tailwind CSS. It stays static-first and lets typography, space, and semantic structure carry the interface.',
-  },
-  reach: {
-    eyebrow: '10 / Reach',
-    title: 'Contact.',
+  contact: {
+    eyebrow: '06 / Connect',
+    slogan: "Let's build something magical together.",
+    sloganNote: 'The inbox is open. One email starts everything.',
+    ctaLabel: 'Send me an email',
+    mailSubject: 'Connect from Personal Website',
+    typed: 'Your mail app is opening. I will reply as soon as I see your message.',
+    emailLabel: 'Official communication hub',
     email: 'wangw_str@163.com',
-    phone: '15661332411',
+    links: {
+      github: 'GitHub',
+      jsdesign: 'jsdesign',
+    },
+    copyright: '© 2026. Powered by Passion, TypeScript & AI.',
   },
 } as const;

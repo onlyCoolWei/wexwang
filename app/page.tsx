@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { CollapsingDotGrid, EmailBeacon } from '@/src/components/contact-finale';
 import { DecryptedText, SplitBlurText } from '@/src/components/hero-effects';
 import { LanguageToggle } from '@/src/components/language-toggle';
 import { MagneticDotGrid } from '@/src/components/magnetic-dot-grid';
@@ -81,6 +82,32 @@ export default function Home() {
       node: 'bg-orange-200 shadow-[0_0_34px_rgba(251,146,60,0.55)]',
       text: 'text-orange-100/70',
       ring: 'group-hover/honor:border-orange-100/35 group-hover/honor:shadow-[0_0_90px_rgba(251,146,60,0.13)]',
+    },
+  ] as const;
+  const skillAccents = [
+    {
+      glow: 'from-emerald-200/16 via-cyan-200/7 to-transparent',
+      ring: 'hover:border-emerald-200/30 hover:shadow-[0_0_90px_rgba(110,231,183,0.12)]',
+      code: 'text-emerald-100/70',
+      node: 'bg-emerald-200 shadow-[0_0_26px_rgba(110,231,183,0.6)]',
+      line: 'via-emerald-100/40',
+      chip: 'hover:-translate-y-1 hover:scale-105 hover:border-emerald-200/45 hover:bg-emerald-100/[0.07] hover:text-emerald-50 hover:shadow-[0_0_26px_rgba(110,231,183,0.26)]',
+    },
+    {
+      glow: 'from-violet-200/16 via-fuchsia-200/7 to-transparent',
+      ring: 'hover:border-violet-200/30 hover:shadow-[0_0_90px_rgba(196,181,253,0.12)]',
+      code: 'text-violet-100/70',
+      node: 'bg-violet-200 shadow-[0_0_26px_rgba(196,181,253,0.6)]',
+      line: 'via-violet-100/40',
+      chip: 'hover:-translate-y-1 hover:scale-105 hover:border-violet-200/45 hover:bg-violet-100/[0.07] hover:text-violet-50 hover:shadow-[0_0_26px_rgba(196,181,253,0.26)]',
+    },
+    {
+      glow: 'from-amber-200/16 via-orange-200/7 to-transparent',
+      ring: 'hover:border-amber-200/30 hover:shadow-[0_0_90px_rgba(251,191,36,0.11)]',
+      code: 'text-amber-100/70',
+      node: 'bg-amber-200 shadow-[0_0_26px_rgba(251,191,36,0.6)]',
+      line: 'via-amber-100/40',
+      chip: 'hover:-translate-y-1 hover:scale-105 hover:border-amber-200/45 hover:bg-amber-100/[0.07] hover:text-amber-50 hover:shadow-[0_0_26px_rgba(251,191,36,0.24)]',
     },
   ] as const;
 
@@ -387,83 +414,172 @@ export default function Home() {
             </div>
           </section>
 
-          <section aria-labelledby="background-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">{t('background.eyebrow')}</p>
-            <div>
-              <h2 id="background-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                {t('background.title')}
+          <section id="skills" aria-labelledby="skills-title" className="relative grid gap-8 md:grid-cols-[180px_1fr]">
+            <div className="pointer-events-none absolute -inset-x-8 -top-14 h-[30rem] bg-[radial-gradient(circle_at_18%_18%,rgba(110,231,183,0.09),transparent_30%),radial-gradient(circle_at_82%_32%,rgba(196,181,253,0.09),transparent_32%),radial-gradient(circle_at_52%_74%,rgba(251,191,36,0.06),transparent_30%)] blur-2xl" />
+            <p className="relative font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
+              {t('skills.eyebrow')}
+            </p>
+            <div className="relative">
+              <h2 id="skills-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
+                {t('skills.title')}
               </h2>
-              <p className="mt-10 max-w-3xl text-xl leading-9 text-neutral-300">{t('background.body')}</p>
-            </div>
-          </section>
+              <div className="mt-12 grid gap-5 lg:grid-cols-2">
+                {dictionary.skills.items.map((skill, index) => {
+                  const accent = skillAccents[index % skillAccents.length];
 
-          <section aria-labelledby="method-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">{t('method.eyebrow')}</p>
-            <div>
-              <h2 id="method-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                {t('method.title')}
-              </h2>
-              <ol className="mt-12 grid gap-8 md:grid-cols-3">
-                {dictionary.method.items.map((method, index) => (
-                  <li key={method}>
-                    <p className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">0{index + 1}</p>
-                    <p className="mt-4 text-lg leading-8 text-neutral-300">{method}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </section>
+                  return (
+                    <article
+                      key={skill.domain}
+                      className={`group/skill relative overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-5 shadow-[0_26px_100px_rgba(0,0,0,0.35)] backdrop-blur transition duration-500 hover:-translate-y-1 hover:bg-white/[0.045] sm:p-7 ${index === 0 ? 'lg:col-span-2' : ''} ${accent.ring}`}
+                    >
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${accent.glow} opacity-70 transition duration-500 group-hover/skill:opacity-100`}
+                      />
+                      <div className="absolute inset-0 opacity-[0.14] [background-image:radial-gradient(rgba(214,232,255,0.5)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(circle_at_80%_0%,black,transparent_70%)]" />
+                      <div className="pointer-events-none absolute right-8 top-9 hidden sm:block">
+                        <div
+                          className={`absolute -left-24 top-1.5 h-px w-24 bg-gradient-to-r from-transparent ${accent.line} to-transparent`}
+                        />
+                        <div
+                          className={`h-3 w-3 rounded-full transition duration-500 group-hover/skill:scale-125 ${accent.node}`}
+                        />
+                      </div>
 
-          <section aria-labelledby="stack-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">{t('stack.eyebrow')}</p>
-            <div>
-              <h2 id="stack-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                {t('stack.title')}
-              </h2>
-              <ul className="mt-12 flex max-w-4xl flex-wrap gap-x-4 gap-y-3">
-                {dictionary.stack.items.map((item) => (
-                  <li key={item} className="font-mono text-sm uppercase tracking-[0.16em] text-neutral-300">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
+                      <div className={`relative ${index === 0 ? 'lg:grid lg:grid-cols-[1fr_1.15fr] lg:gap-10' : ''}`}>
+                        <div>
+                          <div className="flex items-baseline gap-4">
+                            <p
+                              className={`font-mono text-4xl font-semibold leading-none tracking-[-0.06em] text-white/[0.08] transition duration-500 group-hover/skill:text-white/[0.16] sm:text-5xl`}
+                            >
+                              {skill.code}
+                            </p>
+                            <p className={`font-mono text-[11px] uppercase tracking-[0.24em] ${accent.code}`}>
+                              {skill.domain}
+                            </p>
+                          </div>
+                          <h3 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-stone-50 sm:text-3xl">
+                            {skill.name}
+                          </h3>
+                          <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-300">{skill.description}</p>
+                        </div>
 
-          <section aria-labelledby="craft-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">{t('craft.eyebrow')}</p>
-            <div>
-              <h2 id="craft-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                {t('craft.title')}
-              </h2>
-              <p className="mt-10 max-w-3xl text-lg leading-8 text-neutral-300">{t('craft.body')}</p>
-            </div>
-          </section>
-
-          <section id="reach" aria-labelledby="reach-title" className="grid gap-8 md:grid-cols-[180px_1fr]">
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">{t('reach.eyebrow')}</p>
-            <div>
-              <h2 id="reach-title" className="text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
-                {t('reach.title')}
-              </h2>
-              <div className="mt-10 flex flex-col gap-4 text-xl sm:flex-row sm:gap-8">
-                <a
-                  className="underline decoration-neutral-700 underline-offset-4 hover:decoration-stone-50"
-                  href="mailto:wangw_str@163.com"
-                >
-                  {t('reach.email')}
-                </a>
-                <a
-                  className="underline decoration-neutral-700 underline-offset-4 hover:decoration-stone-50"
-                  href="tel:15661332411"
-                >
-                  {t('reach.phone')}
-                </a>
+                        <ul className={`flex flex-wrap content-start gap-2.5 ${index === 0 ? 'mt-8 lg:mt-2' : 'mt-7'}`}>
+                          {skill.tags.map((tag) => (
+                            <li
+                              key={tag}
+                              className={`cursor-default rounded-full border border-white/[0.1] bg-black/30 px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] text-neutral-300 transition duration-300 ${accent.chip}`}
+                            >
+                              {tag}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
             </div>
           </section>
         </div>
       </div>
+
+      <section
+        id="connect"
+        aria-labelledby="connect-title"
+        className="relative flex min-h-screen flex-col overflow-hidden"
+      >
+        <CollapsingDotGrid className="opacity-90" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#030303] via-[#030303]/70 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_46%,rgba(34,211,238,0.07),transparent_34%)]" />
+
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center px-5 py-28 text-center sm:px-8 lg:px-12">
+          <p className="font-mono text-xs uppercase tracking-[0.34em] text-cyan-100/45">{t('contact.eyebrow')}</p>
+          <h2
+            id="connect-title"
+            className="mt-8 max-w-4xl text-4xl font-semibold leading-[1.04] tracking-[-0.05em] text-stone-50 sm:text-6xl lg:text-7xl"
+          >
+            {t('contact.slogan')}
+          </h2>
+          <p className="mt-6 max-w-xl text-base leading-7 text-neutral-400 sm:text-lg">{t('contact.sloganNote')}</p>
+
+          <div className="mt-14">
+            <EmailBeacon
+              email={t('contact.email')}
+              subject={t('contact.mailSubject')}
+              label={t('contact.ctaLabel')}
+              typedMessage={t('contact.typed')}
+            />
+          </div>
+
+          <div className="mt-12 flex flex-col items-center gap-2">
+            <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-neutral-500">
+              {t('contact.emailLabel')}
+            </p>
+            <a
+              href={`mailto:${t('contact.email')}`}
+              className="font-mono text-sm tracking-[0.12em] text-cyan-50/80 underline decoration-cyan-100/25 underline-offset-4 transition hover:text-cyan-50 hover:decoration-cyan-100/60"
+            >
+              {t('contact.email')}
+            </a>
+          </div>
+        </div>
+
+        <footer className="relative z-10 border-t border-white/[0.06] bg-black/20 backdrop-blur-sm">
+          <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-5 px-5 py-7 sm:flex-row sm:px-8 lg:px-12">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">
+              {t('contact.copyright')}
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="https://github.com/wexwang"
+                target="_blank"
+                rel="noreferrer"
+                aria-label={t('contact.links.github')}
+                className="group/icon flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-neutral-400 transition duration-300 hover:-translate-y-1 hover:scale-110 hover:border-cyan-200/40 hover:text-cyan-50 hover:shadow-[0_0_28px_rgba(103,232,249,0.25)]"
+              >
+                <svg viewBox="0 0 16 16" aria-hidden="true" className="h-[18px] w-[18px] fill-current">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                </svg>
+              </a>
+              {[
+                {
+                  label: 'MoreAI',
+                  href: 'https://moreai.cc/',
+                  hover:
+                    'hover:border-emerald-200/40 hover:text-emerald-50 hover:shadow-[0_0_28px_rgba(110,231,183,0.25)]',
+                },
+                {
+                  label: 'Wegic',
+                  href: 'https://wegic.ai/',
+                  hover: 'hover:border-cyan-200/40 hover:text-cyan-50 hover:shadow-[0_0_28px_rgba(103,232,249,0.25)]',
+                },
+                {
+                  label: 'AutoCoder',
+                  href: 'https://www.autocoder.cc/',
+                  hover: 'hover:border-amber-200/40 hover:text-amber-50 hover:shadow-[0_0_28px_rgba(251,191,36,0.25)]',
+                },
+                {
+                  label: t('contact.links.jsdesign'),
+                  href: 'https://js.design/',
+                  hover:
+                    'hover:border-violet-200/40 hover:text-violet-50 hover:shadow-[0_0_28px_rgba(196,181,253,0.25)]',
+                },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={link.label}
+                  className={`group/icon flex h-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-4 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-400 transition duration-300 hover:-translate-y-1 hover:scale-110 ${link.hover}`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </footer>
+      </section>
     </main>
   );
 }
