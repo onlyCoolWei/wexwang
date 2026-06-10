@@ -5,13 +5,16 @@ export const zhCN = {
     work: 'Work',
     career: 'Career',
     reach: 'Reach',
+    products: '项目经历',
+    github: 'GitHub',
+    contact: '联系',
   },
   language: {
     label: '切换语言',
   },
   hero: {
     eyebrow: '00 / MMXXVI',
-    title: 'Building AI-Native Realities.',
+    title: 'AI-Native Frontend Engineer.',
     subtitle: '专注在 AI Agent 工作台、复杂图形画布与现代化工程体系的交叉领域，擅长 AI 产品的从 0 到 1 落地。',
     contactCta: '联系我',
     portraitAlt: '王伟头像',
@@ -19,7 +22,7 @@ export const zhCN = {
   },
   work: {
     eyebrow: '03 / Featured',
-    title: 'Masterpieces.',
+    title: '项目经历.',
     items: [
       {
         name: 'MoreAI',
@@ -54,7 +57,6 @@ export const zhCN = {
       {
         name: 'jsdesign',
         meta: '云端专业级 UI 设计工具',
-        badge: 'Design & Engineering Award Winner',
         hook: '重构百万级协作画布与现代图形学算法引擎。',
         description: '代表图形学与复杂架构内功，长期深耕协作画布、渲染性能与矢量算法。',
         highlights: [
@@ -67,12 +69,14 @@ export const zhCN = {
   },
   honors: {
     eyebrow: '04 / Honors',
-    title: 'Hackathon Reel.',
+    title: '即时设计比赛获奖记录.',
+    projectLabel: '作品：',
+    challengeLabel: '比赛规则：',
     items: [
       {
         number: '01',
         date: '2022.10',
-        award: '即时设计黑客松 · 第二名',
+        award: '即时设计首届黑客松 · 第二名',
         challenge: '围绕即时设计核心产品进行插件生态拓展。',
         project: '便捷插件拓展坞',
         description:
@@ -86,7 +90,7 @@ export const zhCN = {
         challenge: '利用大模型与 AI 技术进行边界探索与自由创作。',
         project: '全员个人 AI-IP 宇宙',
         description:
-          '带领团队利用生成式 AI 工具为公司成员定制兼具美学与人格特质的个人 IP 宇宙，实现艺术创意与算法落地的融合并斩获总冠军。',
+          '利用生成式 AI 工具为公司成员定制兼具美学与人格特质的个人 IP 宇宙，实现艺术创意与算法落地的融合并斩获总冠军。',
         imageLabel: 'AI-IP Universe',
       },
       {
@@ -113,7 +117,7 @@ export const zhCN = {
   },
   career: {
     eyebrow: '02 / Trajectory',
-    title: 'Trajectory.',
+    title: '工作经历.',
     items: [
       {
         year: '2021',

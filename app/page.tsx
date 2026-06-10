@@ -1,20 +1,16 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { CollapsingDotGrid, EmailBeacon } from '@/src/components/contact-finale';
 import { DecryptedText, SplitBlurText } from '@/src/components/hero-effects';
-import { LanguageToggle } from '@/src/components/language-toggle';
 import { MagneticDotGrid } from '@/src/components/magnetic-dot-grid';
+import { SiteHeader } from '@/src/components/site-header';
 import { useTranslation } from '@/src/lib/i18n';
 
 export default function Home() {
   const { dictionary, t } = useTranslation();
-  const dockLinks = [
-    { label: 'Mail', href: 'mailto:wangw_str@163.com' },
-    { label: 'Career', href: '#career' },
-    { label: 'MoreAI', href: 'https://moreai.cc/' },
-    { label: 'Wegic', href: 'https://wegic.ai/' },
-  ];
+  const [openHonor, setOpenHonor] = useState(0);
   const trajectoryAccents = [
     {
       halo: 'group-hover/card:border-emerald-200/35 group-hover/card:shadow-[0_0_70px_rgba(110,231,183,0.13)]',
@@ -60,28 +56,28 @@ export default function Home() {
   ] as const;
   const honorAccents = [
     {
-      glow: 'from-amber-200/20 via-orange-200/8 to-transparent',
-      node: 'bg-amber-200 shadow-[0_0_34px_rgba(251,191,36,0.55)]',
+      glow: 'from-amber-200/[0.07]',
+      node: 'bg-amber-200 shadow-[0_0_24px_rgba(251,191,36,0.6)]',
       text: 'text-amber-100/70',
-      ring: 'group-hover/honor:border-amber-100/35 group-hover/honor:shadow-[0_0_90px_rgba(251,191,36,0.13)]',
+      title: 'group-hover/honor:text-amber-50',
     },
     {
-      glow: 'from-cyan-200/18 via-emerald-200/8 to-transparent',
-      node: 'bg-cyan-200 shadow-[0_0_34px_rgba(103,232,249,0.55)]',
+      glow: 'from-cyan-200/[0.07]',
+      node: 'bg-cyan-200 shadow-[0_0_24px_rgba(103,232,249,0.6)]',
       text: 'text-cyan-100/70',
-      ring: 'group-hover/honor:border-cyan-100/35 group-hover/honor:shadow-[0_0_90px_rgba(34,211,238,0.13)]',
+      title: 'group-hover/honor:text-cyan-50',
     },
     {
-      glow: 'from-violet-200/18 via-fuchsia-200/8 to-transparent',
-      node: 'bg-violet-200 shadow-[0_0_34px_rgba(196,181,253,0.55)]',
+      glow: 'from-violet-200/[0.07]',
+      node: 'bg-violet-200 shadow-[0_0_24px_rgba(196,181,253,0.6)]',
       text: 'text-violet-100/70',
-      ring: 'group-hover/honor:border-violet-100/35 group-hover/honor:shadow-[0_0_90px_rgba(196,181,253,0.13)]',
+      title: 'group-hover/honor:text-violet-50',
     },
     {
-      glow: 'from-orange-200/20 via-red-200/8 to-transparent',
-      node: 'bg-orange-200 shadow-[0_0_34px_rgba(251,146,60,0.55)]',
+      glow: 'from-orange-200/[0.07]',
+      node: 'bg-orange-200 shadow-[0_0_24px_rgba(251,146,60,0.6)]',
       text: 'text-orange-100/70',
-      ring: 'group-hover/honor:border-orange-100/35 group-hover/honor:shadow-[0_0_90px_rgba(251,146,60,0.13)]',
+      title: 'group-hover/honor:text-orange-50',
     },
   ] as const;
   const skillAccents = [
@@ -113,41 +109,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#030303] text-stone-50">
+      <SiteHeader />
       <section id="top" aria-labelledby="hero-title" className="relative min-h-screen overflow-hidden">
         <MagneticDotGrid className="opacity-95" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_62%_44%,rgba(56,189,248,0.14),transparent_26%),radial-gradient(circle_at_78%_30%,rgba(168,85,247,0.14),transparent_24%),linear-gradient(90deg,rgba(3,3,3,0.2),rgba(3,3,3,0.66))]" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black via-black/70 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#030303] via-[#030303]/75 to-transparent" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col px-5 py-6 sm:px-8 lg:px-12">
-          <header className="flex items-center justify-between gap-5 font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-100/45 opacity-0 [animation:hero-reveal_0.8s_cubic-bezier(0.16,1,0.3,1)_1.2s_both]">
-            <a
-              href="#top"
-              className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-cyan-50 shadow-[0_0_30px_rgba(103,232,249,0.08)] backdrop-blur-md transition hover:border-cyan-200/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100"
-            >
-              {t('brand')}
-            </a>
-            <div className="flex items-center gap-3">
-              <nav
-                aria-label={t('nav.ariaLabel')}
-                className="hidden items-center rounded-full border border-white/10 bg-black/30 px-2 py-1.5 shadow-[0_0_36px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:flex"
-              >
-                {dockLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    className="rounded-full px-3 py-2 transition duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-cyan-100/10 hover:text-cyan-50"
-                    href={link.href}
-                    target={link.href.startsWith('http') ? '_blank' : undefined}
-                    rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </nav>
-              <LanguageToggle />
-            </div>
-          </header>
-
+        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col px-5 pb-6 pt-24 sm:px-8 lg:px-12">
           <div className="grid flex-1 content-center gap-12 py-16 md:grid-cols-[minmax(0,0.6fr)_minmax(320px,0.4fr)] md:items-center lg:gap-16">
             <div className="max-w-5xl">
               <p className="mb-7 font-mono text-xs uppercase tracking-[0.34em] text-cyan-100/45">{t('hero.eyebrow')}</p>
@@ -268,20 +237,13 @@ export default function Home() {
                       <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:34px_34px] [mask-image:radial-gradient(circle_at_50%_0%,black,transparent_68%)]" />
 
                       <div className="relative flex h-full flex-col">
-                        <div className="flex items-start justify-between gap-4">
-                          <div>
-                            <p className={`font-mono text-[11px] uppercase tracking-[0.24em] ${accent.label}`}>
-                              {work.meta}
-                            </p>
-                            <h3 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-stone-50 sm:text-4xl">
-                              {work.name}
-                            </h3>
-                          </div>
-                          {'badge' in work && work.badge ? (
-                            <p className="rounded-full border border-amber-200/20 bg-amber-200/[0.06] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-amber-100/70">
-                              {work.badge}
-                            </p>
-                          ) : null}
+                        <div>
+                          <p className={`font-mono text-[11px] uppercase tracking-[0.24em] ${accent.label}`}>
+                            {work.meta}
+                          </p>
+                          <h3 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-stone-50 sm:text-4xl">
+                            {work.name}
+                          </h3>
                         </div>
 
                         <div className="relative mt-8 h-32 overflow-hidden rounded-[1.25rem] border border-white/[0.07] bg-black/25">
@@ -353,63 +315,93 @@ export default function Home() {
                   {t('honors.title')}
                 </h2>
                 <p className="max-w-sm font-mono text-[11px] uppercase tracking-[0.22em] text-neutral-500">
-                  Horizontal parallax reel / placeholder photos
+                  奖项索引/选择展开
                 </p>
               </div>
 
-              <div className="mt-12 overflow-x-auto pb-6 [scroll-snap-type:x_mandatory]">
-                <div className="flex w-max gap-5 pr-8">
-                  {dictionary.honors.items.map((honor, index) => {
-                    const accent = honorAccents[index % honorAccents.length];
+              <div className="mt-12 border-t border-white/[0.08]">
+                {dictionary.honors.items.map((honor, index) => {
+                  const accent = honorAccents[index % honorAccents.length];
+                  const isOpen = openHonor === index;
 
-                    return (
-                      <article
-                        key={`${honor.number}-${honor.project}`}
-                        className={`group/honor relative min-h-[520px] w-[82vw] max-w-[760px] snap-start overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-5 shadow-[0_28px_110px_rgba(0,0,0,0.42)] backdrop-blur transition duration-500 hover:-translate-y-1 hover:bg-white/[0.045] sm:w-[650px] sm:p-7 ${accent.ring}`}
+                  return (
+                    <article
+                      key={`${honor.number}-${honor.project}`}
+                      className="group/honor relative border-b border-white/[0.08]"
+                    >
+                      <div
+                        className={`pointer-events-none absolute inset-0 bg-gradient-to-r ${accent.glow} via-transparent to-transparent transition duration-500 ${
+                          isOpen ? 'opacity-100' : 'opacity-0 group-hover/honor:opacity-100'
+                        }`}
+                      />
+
+                      <button
+                        type="button"
+                        aria-expanded={isOpen}
+                        onClick={() => setOpenHonor(isOpen ? -1 : index)}
+                        className="relative grid w-full grid-cols-[auto_minmax(0,1fr)_24px] items-center gap-x-5 py-7 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100 sm:grid-cols-[72px_minmax(0,1fr)_auto_24px] sm:gap-x-8 sm:py-8"
                       >
-                        <div className={`absolute inset-0 bg-gradient-to-br ${accent.glow} opacity-80`} />
-                        <div className="absolute inset-0 opacity-[0.18] [background-image:radial-gradient(rgba(255,255,255,0.32)_1px,transparent_1px)] [background-size:16px_16px] [mask-image:linear-gradient(90deg,black,transparent_88%)]" />
-                        <div className="absolute inset-y-8 left-8 hidden w-px bg-gradient-to-b from-transparent via-amber-100/30 to-transparent sm:block" />
-                        <div className={`absolute left-7 top-10 hidden h-3 w-3 rounded-full sm:block ${accent.node}`} />
+                        <span className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.24em] text-neutral-500">
+                          <span
+                            className={`h-2 w-2 rounded-full transition duration-500 ${
+                              isOpen ? accent.node : 'bg-neutral-700 group-hover/honor:scale-125'
+                            }`}
+                          />
+                          {honor.number}
+                        </span>
 
-                        <div className="relative grid h-full gap-7 lg:grid-cols-[0.9fr_1.1fr]">
-                          <div className="flex flex-col">
-                            <div className="flex items-start justify-between gap-4">
-                              <p className="font-mono text-7xl font-semibold leading-none tracking-[-0.09em] text-white/[0.06] transition duration-500 group-hover/honor:text-white/[0.12]">
-                                {honor.number}
-                              </p>
-                              <p className={`font-mono text-[11px] uppercase tracking-[0.24em] ${accent.text}`}>
-                                {honor.date}
-                              </p>
-                            </div>
-                            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">
-                              {honor.award}
-                            </p>
-                            <h3 className="mt-4 text-3xl font-semibold tracking-[-0.045em] text-stone-50 sm:text-4xl">
-                              {honor.project}
-                            </h3>
-                            <p className="mt-5 text-base leading-7 text-neutral-300">{honor.challenge}</p>
-                            <p className="mt-5 text-sm leading-7 text-neutral-400">{honor.description}</p>
-                          </div>
+                        <span className="min-w-0">
+                          <span
+                            className={`block text-2xl font-semibold tracking-[-0.045em] text-stone-50 transition duration-500 group-hover/honor:translate-x-2 sm:text-4xl ${accent.title}`}
+                          >
+                            {honor.award}
+                          </span>
+                        </span>
 
-                          <div className="relative min-h-[300px]">
-                            <div className="absolute inset-0 rounded-[1.5rem] border border-white/[0.06] bg-black/25 blur-[1px]" />
-                            <div className="absolute inset-4 rounded-[1.25rem] bg-[linear-gradient(135deg,rgba(255,255,255,0.1),transparent_34%),radial-gradient(circle_at_40%_22%,rgba(255,255,255,0.12),transparent_24%),linear-gradient(160deg,rgba(120,113,108,0.22),rgba(3,3,3,0.72))]" />
-                            <div className="absolute inset-4 opacity-35 transition duration-700 [background-image:linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.16)_48%,transparent_50%)] [background-size:220%_100%] group-hover/honor:[background-position:100%_0]" />
-                            <div className="absolute left-1/2 top-1/2 w-[72%] -translate-x-1/2 -translate-y-1/2 rotate-[-4deg] rounded-[1.1rem] border border-white/70 bg-stone-100 p-3 shadow-[0_28px_80px_rgba(0,0,0,0.5)] transition duration-500 group-hover/honor:-translate-y-[54%] group-hover/honor:rotate-2 group-hover/honor:scale-[1.03]">
-                              <div className="aspect-[4/3] overflow-hidden rounded-[0.7rem] bg-neutral-900">
-                                <div className="h-full w-full bg-[radial-gradient(circle_at_25%_24%,rgba(251,191,36,0.38),transparent_28%),radial-gradient(circle_at_76%_38%,rgba(34,211,238,0.22),transparent_30%),linear-gradient(135deg,rgba(255,255,255,0.1),rgba(3,3,3,0.9))]" />
-                              </div>
-                              <p className="mt-3 truncate font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-700">
-                                {honor.imageLabel}
+                        <span
+                          className={`hidden font-mono text-[11px] uppercase tracking-[0.24em] sm:block ${accent.text}`}
+                        >
+                          {honor.date}
+                        </span>
+
+                        <span
+                          className={`relative flex h-6 w-6 items-center justify-center self-center justify-self-end transition duration-500 ${
+                            isOpen
+                              ? 'rotate-45 text-stone-50'
+                              : 'text-neutral-500 group-hover/honor:rotate-90 group-hover/honor:text-stone-50'
+                          }`}
+                          aria-hidden="true"
+                        >
+                          <span className="absolute h-px w-4 bg-current" />
+                          <span className="absolute h-4 w-px bg-current" />
+                        </span>
+                      </button>
+
+                      <div
+                        className={`grid transition-[grid-template-rows] duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+                          isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                        }`}
+                      >
+                        <div className="overflow-hidden">
+                          <div className="relative grid gap-x-8 pb-9 sm:grid-cols-[72px_minmax(0,1fr)]">
+                            <div className="hidden sm:block" />
+                            <div className="max-w-3xl">
+                              <p className={`font-mono text-[11px] uppercase tracking-[0.22em] ${accent.text}`}>
+                                {t('honors.projectLabel')}
+                                {honor.project}
                               </p>
+                              <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-neutral-400">
+                                {t('honors.challengeLabel')}
+                                {honor.challenge}
+                              </p>
+                              <p className="mt-4 text-base leading-8 text-neutral-300">{honor.description}</p>
                             </div>
                           </div>
                         </div>
-                      </article>
-                    );
-                  })}
-                </div>
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
             </div>
           </section>
@@ -531,7 +523,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a
-                href="https://github.com/wexwang"
+                href="https://github.com/onlyCoolWei"
                 target="_blank"
                 rel="noreferrer"
                 aria-label={t('contact.links.github')}

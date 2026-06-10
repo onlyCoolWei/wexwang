@@ -5,6 +5,9 @@ export const enUS = {
     work: 'Work',
     career: 'Career',
     reach: 'Reach',
+    products: 'Products',
+    github: 'GitHub',
+    contact: 'Contact',
   },
   language: {
     label: 'Change language',
@@ -58,7 +61,6 @@ export const enUS = {
       {
         name: 'jsdesign',
         meta: 'Cloud-native professional UI design tool',
-        badge: 'Design & Engineering Award Winner',
         hook: 'Refactoring the foundation of a million-user collaborative design tool and vector engine.',
         description:
           'Deep graphics and architecture work across collaborative canvas systems, rendering performance, and vector algorithms.',
@@ -73,6 +75,8 @@ export const enUS = {
   honors: {
     eyebrow: '04 / Honors',
     title: 'Hackathon Reel.',
+    projectLabel: 'Project: ',
+    challengeLabel: 'Challenge: ',
     items: [
       {
         number: '01',
