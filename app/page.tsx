@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { CollapsingDotGrid, EmailBeacon } from '@/src/components/contact-finale';
+import DotGrid from '@/src/components/DotGrid';
 import { DecryptedText, SplitBlurText } from '@/src/components/hero-effects';
-import { MagneticDotGrid } from '@/src/components/magnetic-dot-grid';
 import { SiteHeader } from '@/src/components/site-header';
 import { useTranslation } from '@/src/lib/i18n';
 
@@ -111,7 +111,17 @@ export default function Home() {
     <main className="min-h-screen overflow-hidden bg-[#030303] text-stone-50">
       <SiteHeader />
       <section id="top" aria-labelledby="hero-title" className="relative min-h-screen overflow-hidden">
-        <MagneticDotGrid className="opacity-95" />
+        <DotGrid
+          dotSize={3}
+          gap={26}
+          baseColor="#d6e8ff"
+          activeColor="#67e8f9"
+          proximity={132}
+          shockRadius={220}
+          shockStrength={3}
+          className="pointer-events-none opacity-95 [mask-image:radial-gradient(circle_at_48%_44%,black_0%,black_45%,transparent_86%)]"
+          style={{ position: 'absolute', inset: 0, padding: 0 }}
+        />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_62%_44%,rgba(56,189,248,0.14),transparent_26%),radial-gradient(circle_at_78%_30%,rgba(168,85,247,0.14),transparent_24%),linear-gradient(90deg,rgba(3,3,3,0.2),rgba(3,3,3,0.66))]" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black via-black/70 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#030303] via-[#030303]/75 to-transparent" />

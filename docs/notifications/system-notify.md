@@ -1,3 +1,9 @@
+### 2026-06-13
+
+- 🔧 修复 DotGrid throttle 参数类型不兼容问题，并清理 ResizeObserver 初始化的 lint warning。
+- 🔧 将首页 hero 背景切换为 React Bits DotGrid 组件，并移除旧 MagneticDotGrid 引用。
+- ✨ 安装 React Bits DotGrid 组件，新增 shadcn registry 配置与 gsap 依赖，并修复生成组件的 lint/build 兼容问题。
+
 ### 2026-06-10
 
 - 🔧 调整荣誉列表行布局，使序号与日期相对标题垂直居中。
