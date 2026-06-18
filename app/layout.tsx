@@ -4,6 +4,9 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'wexwang',
   description: '王伟的 AI Native Frontend / Agent Engineer 个人网站',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
