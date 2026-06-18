@@ -16,7 +16,7 @@ export const useLanguageStore = create<LanguageState>()(
       setLanguage: (language) => set({ language }),
     }),
     {
-      name: 'wexwang-language',
+      name: 'wexwang-language-v2',
       storage: createJSONStorage(() => localStorage),
     },
   ),

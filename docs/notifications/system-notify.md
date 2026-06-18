@@ -1,3 +1,7 @@
+### 2026-06-18
+
+- 🌐 调整多语言持久化 key，避免旧英文缓存覆盖中文默认语言。
+
 ### 2026-06-13
 
 - 🔧 修复 DotGrid throttle 参数类型不兼容问题，并清理 ResizeObserver 初始化的 lint warning。

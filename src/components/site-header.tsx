@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { LanguageToggle } from '@/src/components/language-toggle';
 import { useTranslation } from '@/src/lib/i18n';
 
 const HIDE_THRESHOLD = 80;
@@ -64,7 +63,6 @@ export function SiteHeader() {
               </a>
             ))}
           </nav>
-          <LanguageToggle />
         </div>
       </header>
     </div>
