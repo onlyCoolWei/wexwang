@@ -181,7 +181,6 @@ export const zhCN = {
   contact: {
     eyebrow: '06 / Connect',
     slogan: "Let's build something magical together.",
-    sloganNote: '让我们一起创造一些不可思议的东西。',
     ctaLabel: '发送邮件',
     mailSubject: 'Connect from Personal Website',
     typed: 'Your mail app is opening. I will reply as soon as I see your message.',

@@ -85,24 +85,18 @@ export default function Home() {
       glow: 'from-emerald-200/16 via-cyan-200/7 to-transparent',
       ring: 'hover:border-emerald-200/30 hover:shadow-[0_0_90px_rgba(110,231,183,0.12)]',
       code: 'text-emerald-100/70',
-      node: 'bg-emerald-200 shadow-[0_0_26px_rgba(110,231,183,0.6)]',
-      line: 'via-emerald-100/40',
       chip: 'hover:-translate-y-1 hover:scale-105 hover:border-emerald-200/45 hover:bg-emerald-100/[0.07] hover:text-emerald-50 hover:shadow-[0_0_26px_rgba(110,231,183,0.26)]',
     },
     {
       glow: 'from-violet-200/16 via-fuchsia-200/7 to-transparent',
       ring: 'hover:border-violet-200/30 hover:shadow-[0_0_90px_rgba(196,181,253,0.12)]',
       code: 'text-violet-100/70',
-      node: 'bg-violet-200 shadow-[0_0_26px_rgba(196,181,253,0.6)]',
-      line: 'via-violet-100/40',
       chip: 'hover:-translate-y-1 hover:scale-105 hover:border-violet-200/45 hover:bg-violet-100/[0.07] hover:text-violet-50 hover:shadow-[0_0_26px_rgba(196,181,253,0.26)]',
     },
     {
       glow: 'from-amber-200/16 via-orange-200/7 to-transparent',
       ring: 'hover:border-amber-200/30 hover:shadow-[0_0_90px_rgba(251,191,36,0.11)]',
       code: 'text-amber-100/70',
-      node: 'bg-amber-200 shadow-[0_0_26px_rgba(251,191,36,0.6)]',
-      line: 'via-amber-100/40',
       chip: 'hover:-translate-y-1 hover:scale-105 hover:border-amber-200/45 hover:bg-amber-100/[0.07] hover:text-amber-50 hover:shadow-[0_0_26px_rgba(251,191,36,0.24)]',
     },
   ] as const;
@@ -438,14 +432,6 @@ export default function Home() {
                         className={`absolute inset-0 bg-gradient-to-br ${accent.glow} opacity-70 transition duration-500 group-hover/skill:opacity-100`}
                       />
                       <div className="absolute inset-0 opacity-[0.14] [background-image:radial-gradient(rgba(214,232,255,0.5)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(circle_at_80%_0%,black,transparent_70%)]" />
-                      <div className="pointer-events-none absolute right-8 top-9 hidden sm:block">
-                        <div
-                          className={`absolute -left-24 top-1.5 h-px w-24 bg-gradient-to-r from-transparent ${accent.line} to-transparent`}
-                        />
-                        <div
-                          className={`h-3 w-3 rounded-full transition duration-500 group-hover/skill:scale-125 ${accent.node}`}
-                        />
-                      </div>
 
                       <div className={`relative ${index === 0 ? 'lg:grid lg:grid-cols-[1fr_1.15fr] lg:gap-10' : ''}`}>
                         <div>
@@ -502,7 +488,6 @@ export default function Home() {
           >
             {t('contact.slogan')}
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-7 text-neutral-400 sm:text-lg">{t('contact.sloganNote')}</p>
 
           <div className="mt-14">
             <EmailBeacon

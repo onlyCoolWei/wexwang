@@ -202,7 +202,6 @@ export const enUS = {
   contact: {
     eyebrow: '06 / Connect',
     slogan: "Let's build something magical together.",
-    sloganNote: 'The inbox is open. One email starts everything.',
     ctaLabel: 'Send me an email',
     mailSubject: 'Connect from Personal Website',
     typed: 'Your mail app is opening. I will reply as soon as I see your message.',
