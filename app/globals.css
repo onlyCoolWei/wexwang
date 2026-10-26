@@ -127,3 +127,33 @@ a {
     animation-iteration-count: 1 !important;
   }
 }
+
+.portrait-reflection {
+  opacity: var(--reflection-opacity, 0);
+  background:
+    radial-gradient(
+      ellipse at var(--reflection-x, 50%) var(--reflection-y, 50%),
+      rgba(255, 255, 255, 0.42) 0%,
+      rgba(207, 250, 254, 0.18) 18%,
+      rgba(103, 232, 249, 0.06) 38%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse at var(--reflection-x, 50%) var(--reflection-y, 50%),
+      transparent 25%,
+      rgba(165, 243, 252, 0.09) 42%,
+      transparent 62%
+    );
+  mix-blend-mode: screen;
+  box-shadow: inset 0 0 0 1px rgba(207, 250, 254, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-tilt {
+    transform: none !important;
+  }
+
+  .portrait-reflection {
+    display: none;
+  }
+}

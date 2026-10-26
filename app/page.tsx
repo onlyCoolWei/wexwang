@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { CollapsingDotGrid, EmailBeacon } from '@/src/components/contact-finale';
 import DotGrid from '@/src/components/DotGrid';
 import { DecryptedText, SplitBlurText } from '@/src/components/hero-effects';
+import { PortraitTilt } from '@/src/components/portrait-tilt';
 import { SiteHeader } from '@/src/components/site-header';
 import { useTranslation } from '@/src/lib/i18n';
 
@@ -137,22 +138,24 @@ export default function Home() {
 
             <figure className="group relative mx-auto w-full max-w-[360px] opacity-0 [animation:hero-reveal_1s_cubic-bezier(0.16,1,0.3,1)_0.8s_both] md:mx-0 md:justify-self-end">
               <div className="absolute -inset-10 rounded-full bg-[conic-gradient(from_140deg,rgba(34,211,238,0.04),rgba(168,85,247,0.28),rgba(45,212,191,0.18),rgba(34,211,238,0.04))] blur-3xl [animation:aurora-drift_8s_ease-in-out_infinite]" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.72)] backdrop-blur">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(103,232,249,0.18),transparent_26%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_28%,rgba(255,255,255,0.04))]" />
-                <div className="relative aspect-[3/4] overflow-hidden rounded-[1.45rem] bg-neutral-950">
-                  <Image
-                    src="/images/wex-id-photo.png"
-                    alt={t('hero.portraitAlt')}
-                    fill
-                    priority
-                    sizes="(min-width: 768px) 360px, 86vw"
-                    className="object-cover brightness-[0.58] contrast-125 saturate-[0.72] transition duration-700 group-hover:brightness-105 group-hover:saturate-100"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(3,3,3,0.3)),radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.16),transparent_40%)] mix-blend-screen" />
-                  <div className="absolute inset-0 opacity-40 transition duration-700 [background-image:radial-gradient(rgba(214,232,255,0.38)_1px,transparent_1px)] [background-size:13px_13px] [mask-image:linear-gradient(90deg,transparent,black_18%,black_82%,transparent)] group-hover:opacity-0" />
-                  <div className="absolute inset-x-0 top-0 h-1/3 translate-y-[-110%] bg-gradient-to-b from-cyan-200/0 via-cyan-200/25 to-cyan-200/0 blur-sm transition duration-700 group-hover:translate-y-[290%]" />
+              <PortraitTilt>
+                <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.72)] backdrop-blur">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(103,232,249,0.18),transparent_26%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_28%,rgba(255,255,255,0.04))]" />
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-[1.45rem] bg-neutral-950">
+                    <Image
+                      src="/images/wex-id-photo.png"
+                      alt={t('hero.portraitAlt')}
+                      draggable={false}
+                      fill
+                      priority
+                      sizes="(min-width: 768px) 360px, 86vw"
+                      className="object-cover brightness-[0.58] contrast-125 saturate-[0.72] transition duration-700 group-hover:brightness-105 group-hover:saturate-100"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(3,3,3,0.3)),radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.16),transparent_40%)] mix-blend-screen" />
+                    <div className="absolute inset-0 opacity-40 transition duration-700 [background-image:radial-gradient(rgba(214,232,255,0.38)_1px,transparent_1px)] [background-size:13px_13px] [mask-image:linear-gradient(90deg,transparent,black_18%,black_82%,transparent)] group-hover:opacity-0" />
+                  </div>
                 </div>
-              </div>
+              </PortraitTilt>
               <a
                 href="mailto:wangw_str@163.com"
                 className="group/contact relative mt-5 flex w-full items-center justify-center overflow-hidden rounded-full border border-cyan-100/20 bg-cyan-100/[0.04] px-6 py-3.5 font-mono text-xs uppercase tracking-[0.28em] text-cyan-50 shadow-[0_0_42px_rgba(34,211,238,0.1)] transition hover:-translate-y-0.5 hover:border-cyan-100/55 hover:bg-cyan-100/10 hover:shadow-[0_0_56px_rgba(34,211,238,0.18)] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100"
